@@ -24,8 +24,7 @@ int main() {
       }
     }
 
-
-    else if (!gpio_get(BTN_PIN2)) {
+    if (!gpio_get(BTN_PIN2)) {
       printf("Botao 2\n");
       sleep_ms(100);
       while (!gpio_get(BTN_PIN2)) {
