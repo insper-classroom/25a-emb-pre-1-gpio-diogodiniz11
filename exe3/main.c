@@ -86,5 +86,6 @@ int main() {
       if (!gpio_get(BTN_PIN2)){
         gpio_put(LED_PIN2, 0);
         sleep_ms(300);
-        contador2 +=1 ;}}}}}
+        contador2 +=1 ;}}}}
+      return 0;}
   
