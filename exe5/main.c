@@ -1,31 +1,41 @@
-#include <stdio.h>
-#include "pico/stdlib.h"
 #include "hardware/gpio.h"
+#include "pico/stdlib.h"
+#include <stdio.h>
 
-const int BTN_PIN = 26;
-const int BTN_PIN_2 = 7;
+int BT1 = 7;
+int BT2 = 26;
 
 int main() {
     stdio_init_all();
 
-    gpio_init(BTN_PIN);
-    gpio_set_dir(BTN_PIN, GPIO_IN);
-    gpio_pull_up(BTN_PIN);
+    gpio_init(BT1);
+    gpio_set_dir(BT1, GPIO_IN);
+    gpio_pull_up(BT1);
 
-    gpio_init(BTN_PIN_2);
-    gpio_set_dir(BTN_PIN_2, GPIO_IN);
-    gpio_pull_up(BTN_PIN_2);
-    int cnt_1 = 0;
-    int cnt_2 = 0;
+    gpio_init(BT2);
+    gpio_set_dir(BT2, GPIO_IN);
+    gpio_pull_up(BT2);
+
+    int bt1_contagem = 0;
+    int bt2_contagem = 0;
 
     while (true) {
-
-        if (!gpio_get(BTN_PIN)) {
-            printf("Botao 1: %d\n", cnt_1++);
+        if (!gpio_get(BT1)) {
+            sleep_ms(50);
+            while (!gpio_get(BT1));
+            bt1_contagem +=1 ;
+            printf("Botão 1 pressionado %d vezes\n", bt1_contagem);
         }
 
-        if (!gpio_get(BTN_PIN_2)) {
-            printf("Botao 2: %d\n", cnt_2++);
+        if (!gpio_get(BT2)) {
+            sleep_ms(50);
+            while (!gpio_get(BT2));
+            bt2_contagem +=1 ;
+            printf("Botão 2 pressionado %d vezes\n", bt2_contagem);
         }
+
+        sleep_ms(10);
     }
+    
+    return 0;
 }
