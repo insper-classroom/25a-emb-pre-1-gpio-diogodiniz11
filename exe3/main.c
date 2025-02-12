@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 const int BTN_PIN =26;
-const int  BTN_PIN2 =27;
-const int  LED_PIN= 5;
-const int  LED_PIN2= 6;
+const int  BTN_PIN2 =28;
+const int  LED_PIN= 6;
+const int  LED_PIN2= 4;
 
 int main() {
     stdio_init_all();
