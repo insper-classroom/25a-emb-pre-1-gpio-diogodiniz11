@@ -32,32 +32,50 @@ int main() {
   while (true) {
     if (!gpio_get(BTN_PIN)) {
       contador1 +=1 ;
+
     while (contador1%2 == 0) {
         gpio_put(LED_PIN, 1);
         sleep_ms(300);
+
         if (!gpio_get(BTN_PIN2)) {
           contador2 +=1 ;
+
         while (contador2%2 == 0) {
             gpio_put(LED_PIN2, 1);
             sleep_ms(300);
+            if (!gpio_get(BTN_PIN)){
+              gpio_put(LED_PIN, 0);
+              sleep_ms(300);
+              contador1 +=1 ; }
+
             if (!gpio_get(BTN_PIN2)){
               gpio_put(LED_PIN2, 0);
               sleep_ms(300);
               contador2 +=1 ;}}}
+
         if (!gpio_get(BTN_PIN)){
           gpio_put(LED_PIN, 0);
           sleep_ms(300);
           contador1 +=1 ; }}}
+
   if (!gpio_get(BTN_PIN2)) {
     contador2 +=1 ;
+
   while (contador2%2 == 0) {
       gpio_put(LED_PIN2, 1);
       sleep_ms(300);
+
       if (!gpio_get(BTN_PIN)) {
         contador1 +=1 ;
+
       while (contador1%2 == 0) {
           gpio_put(LED_PIN, 1);
           sleep_ms(300);
+          if (!gpio_get(BTN_PIN2)){
+            gpio_put(LED_PIN2, 0);
+            sleep_ms(300);
+            contador2 +=1 ;}
+
           if (!gpio_get(BTN_PIN)){
             gpio_put(LED_PIN, 0);
             sleep_ms(300);
