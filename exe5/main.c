@@ -22,16 +22,16 @@ int main() {
     while (true) {
         if (!gpio_get(BT1)) {
             while (!gpio_get(BT1));
-            sleep_ms(50);
+            sleep_ms(100);
             bt1_contagem +=1 ;
-            printf("Botão 1 : %d\n", bt1_contagem);
+            printf("Botao 1: %d\n", bt1_contagem);
         }
 
         if (!gpio_get(BT2)) {
             while (!gpio_get(BT2));
-            sleep_ms(50);
+            sleep_ms(100);
             bt2_contagem +=1 ;
-            printf("Botão 2 : %d\n", bt2_contagem);
+            printf("Botao 2: %d\n", bt2_contagem);
         }
 
         sleep_ms(10);
