@@ -21,16 +21,16 @@ int main() {
 
     while (true) {
         if (!gpio_get(BT1)) {
-            sleep_ms(50);
             while (!gpio_get(BT1));
             bt1_contagem +=1 ;
+            sleep_ms(50);
             printf("Botão 1 pressionado %d vezes\n", bt1_contagem);
         }
 
         if (!gpio_get(BT2)) {
-            sleep_ms(50);
             while (!gpio_get(BT2));
             bt2_contagem +=1 ;
+            sleep_ms(50);
             printf("Botão 2 pressionado %d vezes\n", bt2_contagem);
         }
 
