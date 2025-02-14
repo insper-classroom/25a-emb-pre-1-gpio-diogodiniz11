@@ -16,8 +16,8 @@ int main() {
     gpio_set_dir(BT2, GPIO_IN);
     gpio_pull_up(BT2);
 
-    int bt1_contagem = -1;
-    int bt2_contagem = -1;
+    int bt1_contagem = 0;
+    int bt2_contagem = 0;
 
     while (true) {
         if (!gpio_get(BT1)) {
@@ -31,6 +31,4 @@ int main() {
         }
 
     }
-    
-    return 0;
 }
