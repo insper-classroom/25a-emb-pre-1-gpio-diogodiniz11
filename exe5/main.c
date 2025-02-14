@@ -2,8 +2,8 @@
 #include "pico/stdlib.h"
 #include <stdio.h>
 
-int BT1 = 7;
-int BT2 = 26;
+int BT1 = 26;
+int BT2 = 7;
 
 int main() {
     stdio_init_all();
